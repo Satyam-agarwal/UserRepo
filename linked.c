@@ -12,6 +12,7 @@ int main()
 	};
 	typedef struct NODE NODE ;
     NODE *head,*temp1,*temp ;
+    int pos;
 
     head = (struct NODE*)malloc(sizeof(struct NODE)); 
   
@@ -33,7 +34,7 @@ int main()
                   head->ptr=temp;
                   temp->ptr=NULL;
 
-                  printf("if side%p",head->ptr);
+                 
                  } else
                   {
                     temp1 = (struct NODE*)malloc(sizeof(struct NODE));    /* every time this malloc need to be created no only once */
@@ -42,10 +43,23 @@ int main()
                     temp->ptr=temp1;
                     temp1->ptr=NULL;
                     temp=temp1;
-                    printf("else side %p",head->ptr);
+                    
                   }
 
                printf("%p",head->ptr);
+               }
+               void addnode(int pos,int data)
+               {
+                temp1=head;
+                temp = (struct NODE*)malloc(sizeof(struct NODE));
+                for(int i=0;i<pos;i++){
+                  temp1=temp1->ptr;
+
+                }
+                temp->num=data;
+                temp->ptr=temp1->ptr;
+                temp1->ptr=temp;
+                temp=temp1;
                }
   
                              
@@ -71,7 +85,11 @@ int main()
                           
                           break;
                   case 1: diplay();
-                          return 0;
+                          break;
+                          
+                  case 3:  scanf("%d",&input);
+                           scanf("%d",&pos);    
+                           addnode(pos,input)  ;
   
                 
                         }
