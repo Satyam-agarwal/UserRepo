@@ -8,7 +8,7 @@ int main()
 	struct NODE
 	{
 		int num;
-		struct NODE *ptr;/* num */
+		struct NODE *ptr;   /* num */
 	};
 	typedef struct NODE NODE ;
     NODE *head,*temp1,*temp ;
@@ -46,9 +46,9 @@ int main()
                     
                   }
 
-               printf("%p",head->ptr);
+              
                }
-               void addnode(int pos,int data)
+               void addnode(int data,int pos)
                {
                 temp1=head;
                 temp = (struct NODE*)malloc(sizeof(struct NODE));
@@ -73,8 +73,27 @@ int main()
                         printf("%d\n", temp->num);
                       }
 
+           void addn(int data,int n){
+
+              temp = (struct NODE*)malloc(sizeof(struct NODE));
+              temp=head;
+              int count=n;
+              while(count!=2){
+                temp=temp->ptr;
+                printf("%d\t",temp->num);
+                count--;
+
+              }
+              temp1 = (struct NODE*)malloc(sizeof(struct NODE));
+              temp1->num=data;
+              temp1->ptr=temp->ptr;
+              temp->ptr=temp1;
+
+
+           }           
+
           while(1){ 
-                      printf("enter choice\n");
+                      printf("enter choice \n0: Add node\n1:display\n3:add at n position\n");
                       scanf("%d",&choice);
         switch(choice) {
           
@@ -87,9 +106,11 @@ int main()
                   case 1: diplay();
                           break;
                           
-                  case 3:  scanf("%d",&input);
+                  case 3:  printf("Inter the value" );
+                           scanf("%d\n",&input);
+                           printf("Inter the position" );
                            scanf("%d",&pos);    
-                           addnode(pos,input)  ;
+                           addn(input,pos)  ;
   
                 
                         }
