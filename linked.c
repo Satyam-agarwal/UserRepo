@@ -16,7 +16,7 @@ int main()
 
     head = (struct NODE*)malloc(sizeof(struct NODE)); 
   
-  
+  int del;
   
    int choice,input;
    printf("Enter your choice 0:add 1:quit\n");
@@ -61,6 +61,27 @@ int main()
                 temp1->ptr=temp;
                 temp=temp1;
                }
+           void delete(int n){
+            temp = (struct NODE*)malloc(sizeof(struct NODE));
+              temp=head;
+              int count=n;
+              while(count!=2){
+                temp=temp->ptr;
+                printf("%d\t",temp->num);
+                count--;
+
+              }
+               temp1 = (struct NODE*)malloc(sizeof(struct NODE));
+               temp1=temp;
+               temp=temp->ptr;
+               temp1->ptr=temp->ptr;
+
+
+
+
+
+
+           }    
   
                              
            void diplay()
@@ -93,7 +114,7 @@ int main()
            }           
 
           while(1){ 
-                      printf("enter choice \n0: Add node\n1:display\n3:add at n position\n");
+                      printf("\t\t\tenter choice\n0:Add node\n1:display\n3:add at n position\n:4:Delete at n position\n");
                       scanf("%d",&choice);
         switch(choice) {
           
@@ -111,10 +132,16 @@ int main()
                            printf("Inter the position" );
                            scanf("%d",&pos);    
                            addn(input,pos)  ;
+                           break;
+                  case 4:  
+                           scanf("%d",&del);
+                           delete(del);
+                           break;         
+
   
                 
                         }
-        
+          
                   }
 
 
