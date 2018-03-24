@@ -114,7 +114,7 @@ int main()
            }           
 
           while(1){ 
-                      printf("\t\t\tenter choice\n0:Add node\n1:display\n3:add at n position\n:4:Delete at n position\n");
+                      printf("enter choice\n0:Add node\n1:display\n3:add at n position\n:4:Delete at n position\n");
                       scanf("%d",&choice);
         switch(choice) {
           
